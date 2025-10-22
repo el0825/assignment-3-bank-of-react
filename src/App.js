@@ -18,9 +18,9 @@ class App extends Component {
   constructor() {  // Create and initialize state
     super(); 
     this.state = {
-      accountBalance: 1234567.89,
-      creditList: [],
-      debitList: [],
+      accountBalance: 0,
+      credits: [],
+      debits: [],
       currentUser: {
         userName: 'Joe Smith',
         memberSince: '11/22/99',
@@ -33,6 +33,49 @@ class App extends Component {
     const newUser = {...this.state.currentUser};
     newUser.userName = logInInfo.userName;
     this.setState({currentUser: newUser})
+  }
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  async fetchData() {
+    try {
+      let creditsResponse = await fetch('https://johnnylaicode.github.io/api/credits.json');
+      let debitsResponse = await fetch('https://johnnylaicode.github.io/api/debits.json');
+      
+      let creditsData = await creditsResponse.json();
+      let debitsData = await debitsResponse.json();
+
+      // Set the entire arrays in state at once
+      this.setState({
+        credits: creditsData,
+        debits: debitsData
+      }, this.calculateAccountBalance); // Use a callback to calculate balance AFTER state is set
+
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+  // Helper function to calculate the total balance
+  calculateAccountBalance = () => {
+    const totalCredits = this.state.credits.reduce((sum, credit) => sum + credit.amount, 0);
+    const totalDebits = this.state.debits.reduce((sum, debit) => sum + debit.amount, 0);
+    const accountBalance = (totalCredits - totalDebits).toFixed(2); // Format to 2 decimal places
+    this.setState({ accountBalance });
+  }
+
+  addCredit = (newCredit) => {
+    // Logic to add a credit amount to the credits array 
+    // and update the accountBalance will go here.
+    console.log("addCredit function called");
+  }
+
+  addDebit = (newDebit) => {
+    // Logic to add a debit amount to the debits array
+    // and update the accountBalance will go here.
+    console.log("addDebit function called");
   }
 
   // Create Routes and React elements to be rendered using React components
