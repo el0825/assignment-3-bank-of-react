@@ -16,7 +16,7 @@ const Credits = (props) => {
       // For each credit, we return a list item element showing the data
       // The 'key' is a unique ID required by React for lists
       let date = new Date(credit.date).toLocaleDateString();
-      return <li key={credit.id}>{credit.amount} {credit.description} {date}</li>;
+      return <li key={credit.id}>{date} {credit.description} {credit.amount}  </li>;
     });
   };
 
