@@ -67,8 +67,16 @@ class App extends Component {
   }
 
   addCredit = (newCredit) => {
-    // Logic to add a credit amount to the credits array 
-    // and update the accountBalance will go here.
+
+    const newCreditBalance = [...this.state.credits, newCredit]
+
+    const newBalance = (parseFloat(this.state.accountBalance)+newCredit.amount).toFixed(2);
+
+    this.setState({
+      credits: newCreditBalance,
+      accountBalance: newBalance
+    });
+
     console.log("addCredit function called");
   }
 
@@ -86,7 +94,7 @@ class App extends Component {
       <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} />
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
-    const CreditsComponent = () => (<Credits credits={this.state.credits} accountBalance={this.state.accountBalance}/>) 
+    const CreditsComponent = () => (<Credits credits={this.state.credits} addCredit={this.addCredit} accountBalance={this.state.accountBalance}/>) 
     const DebitsComponent = () => (<Debits debits={this.state.debits} />) 
 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
