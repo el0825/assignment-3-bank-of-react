@@ -5,11 +5,35 @@ The Credits component contains information for Credits page view.
 Note: You need to work on this file for the Assignment.
 ==================================================*/
 import {Link} from 'react-router-dom';
+import React, {useState} from 'react';
+
 
 const Credits = (props) => {
-  //==================================================================
-  // 1. ADD THIS FUNCTION TO CREATE THE LIST OF CREDITS
-  //==================================================================
+
+  // --- 2. ADD useState hooks for the form inputs ---
+  const [description, setDescription] = useState('');
+  const [amount, setAmount] = useState(0);
+
+  // --- 3. ADD the handleSubmit function ---
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent page from reloading
+
+    // Create a new credit object with data from the form
+    const newCredit = {
+      id: (new Date()).getTime(), // Simple unique ID
+      description: description,
+      amount: parseFloat(amount), // Convert amount to a number
+      date: (new Date()).toISOString() // Get current date
+    };
+
+    // Call the addCredit function from props
+    props.addCredit(newCredit);
+
+    // Reset the form fields
+    setDescription('');
+    setAmount(0);
+  };
+
   const creditsView = () => {
     // The .map() function loops through every credit object in the props.credits array
     return props.credits.map((credit) => {
@@ -24,30 +48,30 @@ const Credits = (props) => {
     <div>
       <h1>Credits</h1>
       
-      {/*=============================================================
-        2. ADD THIS SECTION TO DISPLAY THE ACCOUNT BALANCE
-      =============================================================*/}
       <div style={{fontWeight: 'bold'}}>
         Account Balance: {props.accountBalance}
       </div>
       <hr/>
 
-      {/*=============================================================
-        3. ADD THIS SECTION TO RENDER THE LIST OF CREDITS
-      =============================================================*/}
       <ul>
         {creditsView()}
       </ul>
 
-      {/*=============================================================
-        4. ADD THIS SECTION FOR THE "ADD CREDIT" FORM
-           (You will make this functional in a later step)
-      =============================================================*/}
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Description: </label>
-        <input type="text" name="description" />
+        <input 
+          type="text" 
+          name="description" 
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
         <label>Amount: </label>
-        <input type="number" name="amount" />
+        <input 
+          type="number" 
+          name="amount" 
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
         <button type="submit">Add Credit</button>
       </form>
       <br/>
