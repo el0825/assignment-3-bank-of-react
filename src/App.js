@@ -82,7 +82,16 @@ class App extends Component {
 
   addDebit = (newDebit) => {
     // Logic to add a debit amount to the debits array
-    // and update the accountBalance will go here.
+    // make sure it is a number 
+    const amount = Number(newDebit.amount);
+    if(Number.isNaN(amount)) return;
+    const newDebits = [...this.state.debits, newDebit];
+    const newBalance = (parseFloat(this.state.accountBalance) - amount).toFixed(2);
+    
+    this.setState({
+      debits: newDebits,
+      accountBalance: newBalance
+    })
     console.log("addDebit function called");
   }
 
@@ -95,7 +104,7 @@ class App extends Component {
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
     const CreditsComponent = () => (<Credits credits={this.state.credits} addCredit={this.addCredit} accountBalance={this.state.accountBalance} />) 
-    const DebitsComponent = () => (<Debits debits={this.state.debits} />) 
+    const DebitsComponent = () => (<Debits debits={this.state.debits} addDebit={this.addDebit}accountBalance={this.state.accountBalance} />) 
 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (
