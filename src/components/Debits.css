@@ -1,0 +1,136 @@
+.debits-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #e3f2fd, #e1bee7);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  color: #111;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---- Title ---- */
+.debits-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1a237e;
+  letter-spacing: 0.5px;
+}
+
+/* ---- Balance display ---- */
+.balance {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1rem;
+}
+
+.balance--pos {
+  color: #2e7d32;
+  border: 2px solid #81c784;
+}
+
+.balance--neg {
+  color: #c62828;
+  border: 2px solid #ef5350;
+}
+
+/* ---- Debits List ---- */
+.debits-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.debits-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  border-left: 6px solid #3f51b5;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.debits-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.debits-item__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.debits-item__desc {
+  font-weight: 600;
+  color: #283593;
+}
+
+.debits-item__amount {
+  font-weight: 700;
+  color: #1b5e20;
+}
+
+.debits-item__meta {
+  font-size: 0.85rem;
+  color: #616161;
+  margin-top: 0.25rem;
+}
+
+/* ---- Form ---- */
+.debits-form {
+  display: grid;
+  grid-template-columns: 1fr 120px 100px;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.debits-input {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #bdbdbd;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.debits-input:focus {
+  border-color: #3f51b5;
+  outline: none;
+}
+
+.debits-button {
+  background: linear-gradient(90deg, #5c6bc0, #7e57c2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.debits-button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #3949ab, #6a1b9a);
+}
+
+/* ---- Return link ---- */
+.back-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #283593;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #512da8;
+  text-decoration: underline;
+}
