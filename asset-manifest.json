@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/assignment-3-bank-of-react/static/css/main.01e685fb.css",
-    "main.js": "/assignment-3-bank-of-react/static/js/main.cf661b7f.js",
+    "main.css": "/assignment-3-bank-of-react/static/css/main.c49050d4.css",
+    "main.js": "/assignment-3-bank-of-react/static/js/main.ebdc83f0.js",
     "static/js/453.e61b7950.chunk.js": "/assignment-3-bank-of-react/static/js/453.e61b7950.chunk.js",
     "index.html": "/assignment-3-bank-of-react/index.html",
-    "main.01e685fb.css.map": "/assignment-3-bank-of-react/static/css/main.01e685fb.css.map",
-    "main.cf661b7f.js.map": "/assignment-3-bank-of-react/static/js/main.cf661b7f.js.map",
+    "main.c49050d4.css.map": "/assignment-3-bank-of-react/static/css/main.c49050d4.css.map",
+    "main.ebdc83f0.js.map": "/assignment-3-bank-of-react/static/js/main.ebdc83f0.js.map",
     "453.e61b7950.chunk.js.map": "/assignment-3-bank-of-react/static/js/453.e61b7950.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.01e685fb.css",
-    "static/js/main.cf661b7f.js"
+    "static/css/main.c49050d4.css",
+    "static/js/main.ebdc83f0.js"
   ]
 }
