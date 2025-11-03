@@ -7,7 +7,7 @@ Note: You need to work on this file for the Assignment.
 import {Link} from 'react-router-dom';
 import React, {useState} from 'react';
 
-//define style object
+//define a styles object
 const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
