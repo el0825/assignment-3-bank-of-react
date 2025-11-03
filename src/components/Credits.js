@@ -7,8 +7,7 @@ Note: You need to work on this file for the Assignment.
 import {Link} from 'react-router-dom';
 import React, {useState} from 'react';
 
-// --- 1. DEFINE A STYLES OBJECT ---
-// We define all our styles here to keep the JSX clean
+//define style object
 const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
@@ -108,11 +107,11 @@ const styles = {
 
 const Credits = (props) => {
 
-  // --- 2. ADD useState hooks for the form inputs ---
+  // add useState hooks for the form inputs ---
   const [description, setDescription] = useState('');
   const [amount, setAmount] = useState(0);
 
-  // --- 3. ADD the handleSubmit function ---
+  // add the handleSubmit function ---
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent page from reloading
 
@@ -136,8 +135,6 @@ const Credits = (props) => {
     // The .map() function loops through every credit object in the props.credits array
     return props.credits.map((credit) => {
       // For each credit, we return a list item element showing the data
-      // The 'key' is a unique ID required by React for lists
-      //let date = new Date(credit.date).toLocaleDateString();
       let formattedDate = credit.date.substring(0, 10);
       return (
         <li key={credit.id} style={styles.listItem}>
